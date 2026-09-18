@@ -24,8 +24,7 @@ func GenerateToken(secret string, userID uint, username, role string) (string, e
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
-			// NotBefore 设到未来：登录瞬间受保护接口 401（错误）
-			NotBefore: jwt.NewNumericDate(time.Now().Add(2 * time.Minute)),
+			NotBefore: jwt.NewNumericDate(time.Now()),
 		},
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
