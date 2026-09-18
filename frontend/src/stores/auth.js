@@ -13,7 +13,7 @@ export const useAuthStore = defineStore('auth', () => {
     const { data } = await api.post('/auth/login', { username, password })
     token.value = data.token
     user.value = data.user
-    localStorage.setItem('digcatalog_access_token', data.token)
+    localStorage.setItem('digcatalog_token', data.token)
     localStorage.setItem('digcatalog_user', JSON.stringify(data.user))
   }
 
